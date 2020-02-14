@@ -124,20 +124,24 @@ btnHire.addEventListener('click', () => {
 
 });
 
-if (Number(money) >= 50000) {
+function discont(){
+    if (Number(money) >= 50000) {
    
-    mainList.discount = true;
-    discountValue.style.background = "green";
-    discountValue.insertAdjacentHTML('afterbegin', '<p> Дисконтная система активирована, скидка 80%</p>');
-} else {
-    mainList.discount = false;
-    discountValue.style.background = "red";
+        mainList.discount = true;
+        discountValue.style.background = "green";
+        discountValue.insertAdjacentHTML('afterbegin', '<p> Дисконтная система активирована, скидка 80%</p>');
+    } else {
+        mainList.discount = false;
+        discountValue.style.background = "red";
+    }
 }
 
+setTimeout(discont, 6000);
 
 
 
-for (item in mainList) {
-    console.log(`Наш магазин включает в себя: ${item}`);
+
+// for (item in mainList) {
+//     console.log(`Наш магазин включает в себя: ${item}`);
     
-}
+// }
