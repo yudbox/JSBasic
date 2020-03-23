@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // countdown timer
 
-    let deadline = '2020-02-15';
+    let deadline = '2020-04-01';
 
     function getTimeRemaining(endtime) {
         let t   = Date.parse(endtime) - Date.parse(new Date()); //find difference between deadline(endtime) and actuac time
@@ -126,6 +126,123 @@ window.addEventListener('DOMContentLoaded', () => {
     setClock('timer', deadline);
 
 
+    // easy scroling on click navigation button
+
+    let topNav= document.getElementById('topNavigation'),
+        navButtons = topNav.getElementsByTagName('a'),
+        about = document.getElementById('about'),
+        photo = document.getElementById('photo'),
+        price = document.getElementById('price'),
+        contacts = document.getElementById('contacts'),
+        docPos = document.documentElement.scrollHeight,
+        aboutPos = about.getBoundingClientRect().top,
+        photoPos = photo.getBoundingClientRect().top,
+        pricePos = price.getBoundingClientRect().top,
+        contactsPos = contacts.getBoundingClientRect().top;
+
+        navButtons[0].addEventListener('click', function(){
+            let start = Date.now(); // запомнить время начала
+
+            let timer = setInterval(function() {
+            // сколько времени прошло с начала анимации?
+            let timePassed = Date.now() - start;
+            function easyScroll(timePassed){
+                window.scrollTo(0,timePassed);
+            } 
+            easyScroll(timePassed);
+
+                if (timePassed >= aboutPos) {
+                    clearInterval(timer); // закончить анимацию через 2 секунды
+                    return;
+                }
+            });
+
+        });
+        navButtons[1].addEventListener('click', function(){
+            let start = Date.now(); // запомнить время начала
+
+            let timer = setInterval(function() {
+            // сколько времени прошло с начала анимации?
+            let timePassed = Date.now() - start;
+            function easyScroll(timePassed){
+                window.scrollTo(0,timePassed);
+            } 
+            easyScroll(timePassed);
+
+                if (timePassed >= photoPos) {
+                    clearInterval(timer); // закончить анимацию через 2 секунды
+                    return;
+                }
+            });
+
+        });
+        navButtons[2].addEventListener('click', function(){
+            let start = Date.now(); // запомнить время начала
+
+            let timer = setInterval(function() {
+            // сколько времени прошло с начала анимации?
+            let timePassed = Date.now() - start;
+            function easyScroll(timePassed){
+                window.scrollTo(0,timePassed);
+            } 
+            easyScroll(timePassed);
+
+                if (timePassed >= pricePos) {
+                    clearInterval(timer); // закончить анимацию через 2 секунды
+                    return;
+                }
+            });
+
+        });
+
+        navButtons[3].addEventListener('click', function(){
+            let start = Date.now(); // запомнить время начала
+
+            let timer = setInterval(function() {
+            // сколько времени прошло с начала анимации?
+            let timePassed = Date.now() - start;
+            function easyScroll(timePassed){
+                window.scrollTo(0,timePassed);
+            } 
+            easyScroll(timePassed);
+
+                if (timePassed >= contactsPos) {
+                    clearInterval(timer); // закончить анимацию через 2 секунды
+                    return;
+                }
+            });
+
+        });
+
+
+
+        // modal window READ MORE
+
+        let moreBtn = document.querySelector('.more'),
+            modal = document.querySelector('.overlay'),
+            closeBtn = document.querySelector('.popup-close'),
+            infoBlock = document.querySelector('.info');
+            
+        moreBtn.addEventListener('click', function() {
+            this.classList.add('more-splash');
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });    
+
+        closeBtn.addEventListener('click', function() {
+            this.classList.remove('more-splash');
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        infoBlock.addEventListener('click', function(event) {
+            let currBtn = event.target;
+            if(currBtn.className == "description-btn") {
+                    modal.style.display = "block";
+                    document.body.style.overflow = "hidden";
+            }
+
+        });
 
 // function showNotification({top = 0, right = 0, className, html}) {
 
