@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <input id="age" value="30"> 
-<script>
-let age = document.getElementById('age'); 
-function showUser(surname, name) { 
-    alert("Пользователь " + surname + " " + name + ", его возраст " + age.value); } 
-showUser('Smith', 'John');
-</script>
+    <input id="age" value="30">
+    <button id="setAge">Указать</button>
+    <script>
+        let age = document.getElementById('age'),
+            setAge = document.getElementById('setAge');
+
+        setAge.addEventListener('click', function () {
+            let showUser = (surname, name) => {
+                alert("Пользователь " + surname + " " + name + ", его возраст " + age.value);
+            }
+            showUser('Smith', 'John');
+        });
+
+    </script>
 </body>
+
 </html>
